@@ -1,0 +1,59 @@
+version: '3'
+
+services:
+  ssh-server1:
+    container_name: ssh-server1
+    build:
+      context: ./build/machine1
+      dockerfile: Dockerfile
+    networks:
+      - my-network
+
+  ssh-server2:
+    container_name: ssh-server2
+    build:
+      context: ./build/machine2
+      dockerfile: Dockerfile
+    networks:
+      - my-network
+  
+  ssh-server3:
+    container_name: ssh-server3
+    build:
+      context: ./build/machine3
+      dockerfile: Dockerfile
+    networks:
+      - my-network
+  
+  ssh-server4:
+    container_name: ssh-server4
+    build:
+      context: ./build/machine4
+      dockerfile: Dockerfile
+    networks:
+      - my-network
+  
+  ssh-server5:
+    container_name: ssh-server5
+    build:
+      context: ./build/machine5
+      dockerfile: Dockerfile
+    networks:
+      - my-network
+
+  python-container:
+    container_name: python-container
+    build:
+      context: ./build/python-machine
+      dockerfile: Dockerfile
+    command: python
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./code:/app
+    networks:
+      - my-network
+
+networks:
+  my-network:
+
