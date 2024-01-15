@@ -6,6 +6,8 @@ services:
     build:
       context: ./build/machine1
       dockerfile: Dockerfile
+    volumes:
+      - ./machine1/mail:/etc/mail
     networks:
       - my-network
 
@@ -37,6 +39,14 @@ services:
     container_name: ssh-server5
     build:
       context: ./build/machine5
+      dockerfile: Dockerfile
+    networks:
+      - my-network
+  
+  sendmail-machine:
+    container_name: sendmail-machine
+    build:
+      context: ./build/sendmail-machine
       dockerfile: Dockerfile
     networks:
       - my-network

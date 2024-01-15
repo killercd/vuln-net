@@ -14,6 +14,7 @@ incip(){
 
 SCANNER_PATH=sshscan
 
+
 if ! which ping;
 then
     echo "[*] Installing ping utils"
