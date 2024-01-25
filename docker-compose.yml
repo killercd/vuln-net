@@ -48,6 +48,7 @@ services:
     build:
       context: ./build/sendmail-machine
       dockerfile: Dockerfile
+    
     networks:
       - my-network
 
